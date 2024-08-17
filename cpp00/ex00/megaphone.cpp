@@ -6,9 +6,9 @@ int main(int argc, char **argv)
     {
         for (int i = 1; i < argc; i++)
         {
-            size_t len = strlen(argv[i]);
+            size_t len = std::strlen(argv[i]);
             for (size_t j = 0; j < len; j++)
-                std::cout << (char)toupper(argv[i][j]);
+                std::cout << (char)std::toupper(argv[i][j]);
         }
     }
     else

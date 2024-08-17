@@ -10,12 +10,13 @@ private:
     std::string secret;
 
 public:
-    Contact(/* args */);
+    Contact();
     void add_name(std::string name);
-    void add_surname();
-    void add_nickname();
-    void add_p_number();
-    void add_secret();
+    void add_surname(std::string surname);
+    void add_nickname(std::string nickname);
+    void add_p_number(std::string p_number);
+    void add_secret(std::string secret);
     void print_user(size_t i);
+    void print_details(size_t i);
     ~Contact();
 };
