@@ -1,6 +1,6 @@
 NAME = zombie_horde
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRCS = main.cpp zombieHorde.cpp Zombie.cpp
 

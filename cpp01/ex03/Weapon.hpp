@@ -1,7 +1,5 @@
 #include "iostream"
 
-// #ifndef WEAPON_HPP
-// #define WEAPON_HPP
 #pragma once
 class Weapon
 {
@@ -15,5 +13,3 @@ public:
     void setType(std::string type);
     ~Weapon();
 };
-
-// #endif
