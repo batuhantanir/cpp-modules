@@ -1,8 +1,8 @@
-NAME = phone
+NAME = zombie_horde
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp phonebook.cpp contact.cpp
+SRCS = main.cpp zombieHorde.cpp Zombie.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

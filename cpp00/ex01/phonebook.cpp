@@ -87,7 +87,6 @@ void Phonebook::add_user(size_t i)
         if (count == 5)
             break;
     }
-    this->book[i].print_details(i);
     std::cout << "Person added!" << std::endl;
 }
 

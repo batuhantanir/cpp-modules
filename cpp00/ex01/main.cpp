@@ -5,8 +5,6 @@ int check_prompt(std::string line, Phonebook *book, size_t *i)
     if (line == "ADD")
     {
         (*book).add_user(*i);
-        Contact a = (*book).get_user(*i);
-        a.print_details(*i);
         (*i)++;
     }
     else if (line == "SEARCH")
