@@ -7,7 +7,7 @@ int main(void)
     std::string &stringREF = text;
 
     std::cout << &text << std::endl;
-    std::cout << &stringPTR << std::endl;
+    std::cout << stringPTR << std::endl;
     std::cout << &stringREF << std::endl;
 
     std::cout << text << std::endl;
