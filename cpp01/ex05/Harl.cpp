@@ -33,32 +33,29 @@ void	Harl::error(void)
 }
 
 
-void Harl::complain(std::string level)
+void	Harl::complain(std::string level)
 {
-    std::string level_base[] = {"debug", "info", "warning", "error", "none"};
-    int i = 0;
-    while (i < 5)
-    {
-        if (level_base[i] == level)
-            break;
-        i++;
-    }
+	void	(Harl::*complaintFunctions[])(void) = {
+		&Harl::debug,
+		&Harl::info,
+		&Harl::warning,
+		&Harl::error
+	};
+	std::string	complaintLevels[] = {
+		"debug",
+		"info",
+		"warning",
+		"error"
+	};
 
-    switch (i)
-    {
-    case 0:
-        this->debug();
-        break;
-    case 1:
-        this->info();
-        break;
-    case 2:
-        this->warning();
-        break;
-    case 3:
-        this->error();
-        break;
-    default:
-        std::cout << "invalid command" << std::endl;
-    }
+	for (int cur = 0; cur < 4; cur++)
+	{
+		if (level == complaintLevels[cur])
+		{
+			(this->*complaintFunctions[cur])();
+			break;
+		}
+	}
+	return;
 }
+
