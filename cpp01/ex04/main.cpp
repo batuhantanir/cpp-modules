@@ -15,19 +15,16 @@ int replace_file(std::string filename, std::string search, std::string replace, 
     size_t check = 0;
     for (size_t i = 0; i < count; i++)
     {
-        check = file_str.find(file_str[i], i);
-        if (check == )
+        check = file_str.find(search, i);
+        if (check != std::string::npos && i == check)
         {
-            i += ;
+            fs << replace;
+            i += search.size() - 1;
         }
         else
-        {
-        }
-    }
-
-    (void)file_str;
-    (void)search;
-    (void)replace;
+            fs << file_str[i];
+    }   
+    fs.close();
     return 0;
 }
 
@@ -52,6 +49,6 @@ int main(int ac, char **av)
     }
     while (!fs.eof() && fs >> std::noskipws >> c)
         file_str += c;
-    std::cout << file_str;
+    fs.close();
     return (replace_file(filename, search, replace, file_str));
 }
