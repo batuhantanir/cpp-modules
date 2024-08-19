@@ -1,6 +1,7 @@
 #include "iostream"
 #include "Weapon.hpp"
 
+#pragma once
 class HumanB
 {
 private:

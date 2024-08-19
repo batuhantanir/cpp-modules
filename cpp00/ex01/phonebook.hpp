@@ -1,5 +1,6 @@
 #include "contact.hpp"
 
+#pragma once
 class Phonebook
 {
 private:
