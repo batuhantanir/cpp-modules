@@ -1,5 +1,4 @@
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
@@ -44,6 +43,18 @@ int main()
         c.beRepaired(2);
         c.highFivesGuys();
         d.highFivesGuys();
+    }
+    std::cout << "----------------DiamondTrap----------------" << std::endl;
+    {
+        DiamondTrap a;
+        DiamondTrap b("b");
+        DiamondTrap c(a);
+
+        a.whoAmI();
+        a.attack("some guys");
+        b.whoAmI();
+        b.attack("robots");
+        c.whoAmI();
     }
     return 0;
 }

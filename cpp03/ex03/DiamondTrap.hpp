@@ -8,6 +8,9 @@ private:
 
 public:
     DiamondTrap();
+    DiamondTrap(std::string name);
+    DiamondTrap(const DiamondTrap &copy);
+    DiamondTrap &operator=(const DiamondTrap &src);
     void whoAmI();
     virtual ~DiamondTrap();
 };

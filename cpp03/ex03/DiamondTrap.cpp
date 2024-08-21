@@ -1,18 +1,21 @@
 #include "DiamondTrap.hpp"
+#include "ClapTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap()
+DiamondTrap::DiamondTrap(void) : ClapTrap("none_clap_trap")
 {
-    this->hit_points = 100;
-    this->energy_points = 100;
-    this->attack_damage = 30;
+    this->name = "none";
+    this->hit_points = FragTrap::hit_points;
+    this->energy_points = ScavTrap::energy_points;
+    this->attack_damage = FragTrap::attack_damage;
     std::cout << "DiamondTrap Default constructor called!" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_trap")
 {
-    this->hit_points = 100;
-    this->energy_points = 100;
-    this->attack_damage = 30;
+    this->name = name;
+    this->hit_points = FragTrap::hit_points;
+    this->energy_points = ScavTrap::energy_points;
+    this->attack_damage = FragTrap::attack_damage;
     std::cout << "DiamondTrap Constructor for the name " << this->name << " called" << std::endl;
 }
 
@@ -29,8 +32,17 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src)
     return *this;
 }
 
+DiamondTrap::DiamondTrap(const DiamondTrap &copy) : ClapTrap(copy), ScavTrap(copy), FragTrap(copy)
+{
+    std::cout << "DiamondTrap Copy constructor called!" << std::endl;
+    *this = copy;
+}
+
 void DiamondTrap::whoAmI()
 {
+    std::cout << "I am a DiamondTrap! My name is " << this->name
+              << " and i am originated from the ClapTrap My name is "
+              << ClapTrap::name << "." << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()

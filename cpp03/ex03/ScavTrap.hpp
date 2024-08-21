@@ -2,7 +2,7 @@
 
 #pragma once
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 private:
     bool guarding_gate;
