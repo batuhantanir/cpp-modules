@@ -10,7 +10,7 @@ protected:
     int attack_damage;
 
 public:
-    ClapTrap(void);
+    ClapTrap();
     ClapTrap(const ClapTrap &copy);
     ClapTrap(std::string name);
     ClapTrap &operator=(const ClapTrap &src);
