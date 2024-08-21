@@ -13,7 +13,7 @@ void Replace::setAllData(std::string filename, std::string search, std::string r
 {
     if (filename.empty() || search.empty() || replace.empty())
     {
-        std::cout << ARG_EMPTY << std::endl;
+        std::cout << "Arguments cannot be empty" << std::endl;
         std::exit(1);
     }
     this->filename = filename;

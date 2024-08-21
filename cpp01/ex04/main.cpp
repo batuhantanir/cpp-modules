@@ -4,7 +4,7 @@ int main(int ac, char **av)
 {
     if (ac != 4)
     {
-        std::cout << ARG_ERR << std::endl;
+        std::cout << "the format of the program should be ./replace <filename> <s1> <s2>" << std::endl;
         return 1;
     }
 

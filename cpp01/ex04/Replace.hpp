@@ -16,6 +16,3 @@ public:
     void replaceFile();
     ~Replace();
 };
-
-#define ARG_ERR "the format of the program should be ./replace <filename> <s1> <s2>"
-#define ARG_EMPTY "Arguments cannot be empty"
