@@ -1,24 +1,25 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : name("none"), hit_points(10), energy_points(10), attack_damage(0)
+ClapTrap::ClapTrap(void) : name("none"), hit_points(10), energy_points(10), attack_damage(0)
 {
-    std::cout << "Default constructor called!" << std::endl;
+    std::cout << "ClapTrap Default constructor called!" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
-    std::cout << "Copy constructor called!" << std::endl;
+    std::cout << "ClapTrap Copy constructor called!" << std::endl;
     *this = copy;
 }
 
 ClapTrap::ClapTrap(std::string name) : hit_points(10), energy_points(10), attack_damage(0)
 {
-    std::cout << name << " Constructor called!" << std::endl;
+    std::cout << name << " ClapTrap Constructor called!" << std::endl;
     this->name = name;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &src)
 {
+    std::cout << "ClapTrap Assignation operator called" << std::endl;
     if (this != &src)
     {
         attack_damage = src.attack_damage;
@@ -75,5 +76,5 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << name << " Destructor called" << std::endl;
+    std::cout << name << " ClapTrap Destructor called" << std::endl;
 }
