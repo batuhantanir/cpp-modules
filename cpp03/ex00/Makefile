@@ -1,8 +1,8 @@
-NAME = replace
+NAME = fixed
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-SRCS = main.cpp Replace.cpp
+SRCS = main.cpp Fixed.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
