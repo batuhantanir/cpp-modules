@@ -11,8 +11,6 @@ int main(int ac, char **av)
     Replace obj = Replace();
 
     obj.setAllData(av[1], av[2], av[3]);
-    obj.readFile();
-    obj.replaceFile();
 
     return (0);
 }

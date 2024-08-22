@@ -19,6 +19,8 @@ void Replace::setAllData(std::string filename, std::string search, std::string r
     this->filename = filename;
     this->search = search;
     this->replace = replace;
+    this->readFile();
+    this->replaceFile();
 }
 
 void Replace::readFile()
