@@ -9,8 +9,8 @@ protected:
 
 public:
     Animal(/* args */);
-    Animal(const Animal &copy);
-    Animal &operator=(const Animal &src);
+    Animal::Animal(const Animal &copy);
+    Animal &Animal::operator=(const Animal &src);
     std::string getType() const;
     virtual void makeSound() const;
     virtual ~Animal();
