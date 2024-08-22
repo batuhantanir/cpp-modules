@@ -41,6 +41,7 @@ void	Harl::complain(std::string level)
 		&Harl::warning,
 		&Harl::error
 	};
+	
 	std::string	complaintLevels[] = {
 		"debug",
 		"info",

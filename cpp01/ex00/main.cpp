@@ -2,14 +2,15 @@
 
 int main(void)
 {
-    Zombie *z = newZombie("BATU");
-    if(!z)
-    {
-        std::cerr << "Memory Allocation Error!" << std::endl;
-        return 1;
-    }
+    Zombie *z = newZombie("John");
+
+    if (!z)
+        return (std::cerr << "Memory Allocation Error!" << std::endl, 1);
+
     z->announce();
-    randomChump("EMIR");
+    randomChump("Doe");
+
     delete z;
+
     return 0;
 }
