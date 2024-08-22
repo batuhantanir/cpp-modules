@@ -1,4 +1,4 @@
-#include "contact.hpp"
+#include "Contact.hpp"
 
 Contact::Contact(/* args */)
 {
@@ -31,6 +31,23 @@ void Contact::add_p_number(std::string p_number)
 void Contact::add_secret(std::string secret)
 {
     this->secret = secret;
+}
+
+std::string Contact::get_name()
+{
+    return (this->name);
+}
+std::string Contact::get_surname(){
+    return (this->surname);
+}
+std::string Contact::get_nickname(){
+    return (this->nickname);
+}
+std::string Contact::get_p_number(){
+    return (this->p_number);
+}
+std::string Contact::get_secret(){
+    return (this->secret);
 }
 
 std::string print_space(std::string str)

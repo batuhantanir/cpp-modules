@@ -1,4 +1,4 @@
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 
 int check_prompt(std::string line, Phonebook *book, size_t *i)
 {
@@ -24,13 +24,13 @@ int prompt_line(Phonebook *book)
             i = 0;
         std::cout << "Please enter ADD | SEARCH | EXIT" << std::endl;
         std::cout << "> ";
-        std::cin >> line;
+        std::getline(std::cin, line);
         if (std::cin.eof())
             return 0;
         if (std::cin.fail())
         {
-            std::cin.clear();                                                   // Error flags are reset
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining invalid input
+            std::cin.clear();
+            std::cin.ignore();
             continue;
         }
         if (check_prompt(line, book, &i))

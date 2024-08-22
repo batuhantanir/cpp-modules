@@ -3,6 +3,7 @@
 Dog::Dog(void)
 {
     this->type = "Dog";
+    this->brain = new Brain(); 
     std::cout << "Dog default constructor called" << std::endl;
 }
 
@@ -28,4 +29,5 @@ void Dog::makeSound() const
 Dog::~Dog()
 {
     std::cout << "Dog default destructor called" << std::endl;
+    delete this->brain;
 }
