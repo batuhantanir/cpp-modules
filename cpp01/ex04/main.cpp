@@ -8,9 +8,9 @@ int main(int ac, char **av)
         return 1;
     }
 
-    Replace obj = Replace();
+    Replace obj;
 
-    obj.setAllData(av[1], av[2], av[3]);
+    obj.replaceData(av[1], av[2], av[3]);
 
     return (0);
 }

@@ -1,6 +1,6 @@
 NAME = brain
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CPPFLAGS = -Wall -Wextra -Werror
 
 SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 

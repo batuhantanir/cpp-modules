@@ -1,5 +1,4 @@
 #include "Replace.hpp"
-#include <fstream>
 
 Replace::Replace()
 {
@@ -9,7 +8,7 @@ Replace::~Replace()
 {
 }
 
-void Replace::setAllData(std::string filename, std::string search, std::string replace)
+void Replace::replaceData(std::string filename, std::string search, std::string replace)
 {
     if (filename.empty() || search.empty() || replace.empty())
     {
@@ -25,43 +24,44 @@ void Replace::setAllData(std::string filename, std::string search, std::string r
 
 void Replace::readFile()
 {
-    std::string file_str;
-    char c;
-    std::fstream fs;
-    fs.open(filename, std::ios::in);
-    if (fs.fail())
+    std::string buffer;
+
+    read_fs.open(filename, std::ios::in);
+    if (read_fs.fail())
     {
         std::cerr << filename << " not open" << std::endl;
         std::exit(1);
     }
-    while (!fs.eof() && fs >> std::noskipws >> c)
-        file_str += c;
-    fs.close();
-    this->file_str = file_str;
+    std::getline(read_fs, buffer, '\0');
+    file_str += buffer;
+    read_fs.close();
 }
 
 void Replace::replaceFile()
 {
-    std::fstream fs;
-
-    fs.open(filename + ".replace", std::ios::out);
-    if (fs.fail())
+    write_fs.open(filename + ".replace", std::ios::out);
+    if (write_fs.fail())
     {
-        std::cerr << filename << " not created" << std::endl;
+        std::cerr << filename + ".replace"
+                  << " not created" << std::endl;
         std::exit(1);
     }
-    size_t count = file_str.size();
+
     size_t check = 0;
-    for (size_t i = 0; i < count; i++)
+    size_t i = 0;
+    size_t len = file_str.length();
+
+    for (; i < len; i++)
     {
         check = file_str.find(search, i);
         if (check != std::string::npos && i == check)
         {
-            fs << replace;
+            write_fs << replace;
             i += search.size() - 1;
         }
         else
-            fs << file_str[i];
+            write_fs << file_str[i];
     }
-    fs.close();
+    
+    write_fs.close();
 }
