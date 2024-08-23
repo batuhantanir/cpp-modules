@@ -6,8 +6,7 @@ int main(int argc, char **argv)
     {
         for (int i = 1; i < argc; i++)
         {
-            size_t len = std::strlen(argv[i]);
-            for (size_t j = 0; j < len; j++)
+            for (size_t j = 0; argv[i][j]; j++)
                 std::cout << (char)std::toupper(argv[i][j]);
         }
     }

@@ -53,10 +53,13 @@ std::string Contact::get_secret(){
 std::string print_space(std::string str)
 {
     size_t len = str.length();
+    
     str.resize(9);
     size_t space_count = (len >= 10 ? 0 : (10 - len));
+
     for (size_t i = 0; i < space_count; i++)
         str = " " + str;
+
     return str;
 }
 

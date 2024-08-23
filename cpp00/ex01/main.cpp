@@ -18,6 +18,7 @@ int prompt_line(Phonebook *book)
 {
     std::string line;
     size_t i = 0;
+
     while (1)
     {
         if (i == 8)
@@ -36,6 +37,7 @@ int prompt_line(Phonebook *book)
         if (check_prompt(line, book, &i))
             return 0;
     }
+    
     return 0;
 }
 
