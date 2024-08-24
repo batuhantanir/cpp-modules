@@ -1,4 +1,5 @@
 #include "Phonebook.hpp"
+#include <limits.h>
 
 Phonebook::Phonebook(/* args */)
 {
@@ -16,7 +17,7 @@ std::string Phonebook::add_user_prompt(std::string prompt_name)
     if (std::cin.eof() || std::cin.fail())
     {
         std::cin.clear();
-        std::cin.ignore();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::exit(1);
     }
     return data;
@@ -33,7 +34,7 @@ void Phonebook::add_user(size_t i)
     data = "";
     while (data.empty())
     {
-        
+
         data = add_user_prompt("Surname");
         this->book[i].add_surname(data);
     }
@@ -84,7 +85,7 @@ void Phonebook::search()
     while (++i < 8)
     {
         Contact usr = get_user(i);
-        if(usr.get_name().empty())
+        if (usr.get_name().empty())
             break;
         usr.print_user(i);
     }
@@ -95,28 +96,27 @@ void Phonebook::search()
         std::cin >> i;
         if (std::cin.eof())
             return;
-        if (std::cin.fail() || i < 0 || i > 7 )
+        if (std::cin.fail() || i < 0 || i > 7)
         {
-            std::cout << "Invalid Element"<< std::endl;
+            std::cout << "Invalid Element" << std::endl;
             std::cin.clear();
-            std::cin.ignore();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }
         if (0 <= i && i <= 7)
         {
             Contact usr = get_user(i);
-            if(usr.get_name().empty())
+            if (usr.get_name().empty())
             {
-                std::cout << "Element " << i << " is empty"<< std::endl;
+                std::cout << "Element " << i << " is empty" << std::endl;
                 std::cin.clear();
-                std::cin.ignore();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 continue;
             }
             usr.print_details(i);
             std::cin.clear();
-            std::cin.ignore();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             break;
         }
     }
-   
 }

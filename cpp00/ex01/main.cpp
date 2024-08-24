@@ -31,13 +31,13 @@ int prompt_line(Phonebook *book)
         if (std::cin.fail())
         {
             std::cin.clear();
-            std::cin.ignore();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }
         if (check_prompt(line, book, &i))
             return 0;
     }
-    
+
     return 0;
 }
 
