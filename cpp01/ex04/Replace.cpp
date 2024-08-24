@@ -12,7 +12,7 @@ void Replace::replaceData(std::string filename, std::string search, std::string 
 {
     if (filename.empty() || search.empty() || replace.empty())
     {
-        std::cout << "Arguments cannot be empty" << std::endl;
+        std::cerr << "Arguments cannot be empty" << std::endl;
         std::exit(1);
     }
     this->filename = filename;
@@ -48,10 +48,9 @@ void Replace::replaceFile()
     }
 
     size_t check = 0;
-    size_t i = 0;
     size_t len = file_str.length();
 
-    for (; i < len; i++)
+    for (size_t i = 0; i < len; i++)
     {
         check = file_str.find(search, i);
         if (check != std::string::npos && i == check)
@@ -62,6 +61,6 @@ void Replace::replaceFile()
         else
             write_fs << file_str[i];
     }
-    
+
     write_fs.close();
 }
