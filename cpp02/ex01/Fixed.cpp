@@ -1,26 +1,29 @@
 #include "Fixed.hpp"
+#include <cmath>
+
+const int Fixed::frac = 8;
 
 Fixed::Fixed() : num(0)
 {
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(int num)
+Fixed::Fixed(const int num)
 {
     std::cout << "Int constructor called" << std::endl;
-    this->num = num;
+    this->num = num << frac;
 }
 
-Fixed::Fixed(float num)
+Fixed::Fixed(const float num)
 {
     std::cout << "Float constructor called" << std::endl;
-    this->num = num;
+    this->num = roundf(num * (1 << frac));
 }
 
 Fixed::Fixed(const Fixed &other)
 {
-    *this = other;
     std::cout << "Copy constructor called" << std::endl;
+    *this = other;
 }
 
 Fixed &Fixed::operator=(const Fixed &other)
@@ -31,33 +34,33 @@ Fixed &Fixed::operator=(const Fixed &other)
     return *this;
 }
 
-std::ostream &Fixed::operator<<(std::ostream &str, Fixed const &fixed_nbr)
-{
-}
-
 int Fixed::getRawBits() const
 {
-    std::cout << "getRawBits member function called" << std::endl;
     return num;
 }
 
 void Fixed::setRawBits(int const raw)
 {
-    std::cout << "setRawBits member function called" << std::endl;
     num = raw;
 }
 
 float Fixed::toFloat(void) const
 {
-    return;
+    return ((float)num / (float)(1 << frac));
 }
 
 int Fixed::toInt(void) const
 {
-    return;
+    return (roundf(num  / (1 << frac)));
 }
 
 Fixed::~Fixed()
 {
     std::cout << "Destructor called" << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &out, Fixed const &fixed_nbr)
+{
+    out << fixed_nbr.toFloat();
+    return out;
 }
