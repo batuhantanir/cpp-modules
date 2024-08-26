@@ -9,7 +9,7 @@ int main(void)
         Point c(0, 10);
         Point point(1, 2);
         // true
-        std::cout << bsp(a, b, c, point) << std::endl;
+        std::cout << std::boolalpha << bsp(a, b, c, point) << std::endl;
     }
 
     {
@@ -18,7 +18,7 @@ int main(void)
         Point c(0, 10);
         Point point(1, 1);
         // false
-        std::cout << bsp(a, b, c, point) << std::endl;
+        std::cout << std::boolalpha << bsp(a, b, c, point) << std::endl;
     }
 
     {
@@ -27,7 +27,7 @@ int main(void)
         Point c(0, 10);
         Point point(1, 1);
         // false
-        std::cout << bsp(a, b, c, point) << std::endl;
+        std::cout << std::boolalpha << bsp(a, b, c, point) << std::endl;
     }
 
     {
@@ -36,7 +36,7 @@ int main(void)
         Point c(-2.5, 0.512);
         Point point(1, 1);
         // true
-        std::cout << bsp(a, b, c, point) << std::endl;
+        std::cout << std::boolalpha << bsp(a, b, c, point) << std::endl;
     }
 
     {
@@ -45,7 +45,7 @@ int main(void)
         Point c(-2.5, 1.2032f);
         Point point(1, 1);
         // true
-        std::cout << bsp(a, b, c, point) << std::endl;
+        std::cout << std::boolalpha << bsp(a, b, c, point) << std::endl;
     }
 
     {
@@ -54,7 +54,7 @@ int main(void)
         Point c;
         Point point;
         // false
-        std::cout << bsp(a, b, c, point) << std::endl;
+        std::cout << std::boolalpha << bsp(a, b, c, point) << std::endl;
     }
     return 0;
 }
