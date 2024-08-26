@@ -120,11 +120,11 @@ Fixed &Fixed::min(Fixed &fixed1, Fixed &fixed2)
     return fixed1;
 }
 
-Fixed &Fixed::min(const Fixed &fixed1, const Fixed &fixed2)
+const Fixed &Fixed::min(const Fixed &fixed1, const Fixed &fixed2)
 {
-    if ((Fixed &)fixed1 > (Fixed &)fixed2)
-        return (Fixed &)fixed2;
-    return (Fixed &)fixed1;
+    if (fixed1 > fixed2)
+        return fixed2;
+    return fixed1;
 }
 
 Fixed &Fixed::max(Fixed &fixed1, Fixed &fixed2)
@@ -134,11 +134,11 @@ Fixed &Fixed::max(Fixed &fixed1, Fixed &fixed2)
     return fixed1;
 }
 
-Fixed &Fixed::max(const Fixed &fixed1, const Fixed &fixed2)
+const Fixed &Fixed::max(const Fixed &fixed1, const Fixed &fixed2)
 {
-    if ((Fixed &)fixed1 < (Fixed &)fixed2)
-        return (Fixed &)fixed2;
-    return (Fixed &)fixed1;
+    if (fixed1 < fixed2)
+        return fixed2;
+    return fixed1;
 }
 
 int Fixed::getRawBits() const

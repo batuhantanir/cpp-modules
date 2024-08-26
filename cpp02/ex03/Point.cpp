@@ -4,13 +4,12 @@ Point::Point() : x(0), y(0)
 {
 }
 
-Point::Point(const float x, const float y) : x(x), y(y)
+Point::Point(const float x, const float y) : x(x) , y(y)
 {
 }
-Point::Point(const Point &copy)
+
+Point::Point(const Point &copy) : x(copy.x), y(copy.y)
 {
-    (void)copy;
-    // *this = copy;
 }
 
 Point &Point::operator=(const Point &other)
@@ -21,6 +20,15 @@ Point &Point::operator=(const Point &other)
         // y = other.y;
     }
     return *this;
+}
+
+Fixed const &Point::getX() const
+{
+    return this->x;
+}
+Fixed const &Point::getY() const
+{
+    return this->y;
 }
 
 Point::~Point()
