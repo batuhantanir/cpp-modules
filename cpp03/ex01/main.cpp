@@ -28,6 +28,13 @@ int main()
         c.guardGate();
         c.guardGate();
     }
+        std::cout << "-----------ScavTrap destructor-----------" << std::endl;
+    {
+        ClapTrap* a = new ScavTrap("a");
+
+        a->attack("c");
+        delete a;
+    }
 
     return 0;
 }

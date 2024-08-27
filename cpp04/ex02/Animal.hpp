@@ -1,6 +1,6 @@
 #pragma once
 
-#include "iostream"
+#include <iostream>
 
 class Animal
 {
@@ -12,6 +12,6 @@ public:
     Animal(const Animal &copy);
     Animal &operator=(const Animal &src);
     std::string getType() const;
-    virtual void makeSound() const;
+    virtual void makeSound() const = 0;
     virtual ~Animal();
 };

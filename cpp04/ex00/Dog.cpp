@@ -21,7 +21,7 @@ Dog &Dog::operator=(const Dog &src)
 
 void Dog::makeSound() const
 {
-    std::cout << "Hav Hav!!" << std::endl;
+    std::cout << "Woof!!" << std::endl;
 }
 
 Dog::~Dog()
