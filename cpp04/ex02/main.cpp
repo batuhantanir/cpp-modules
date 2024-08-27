@@ -4,14 +4,14 @@
 // int main( void )
 // {
 //
-// 	const Animal* dog = new Dog();
-// 	const Animal* cat = new Cat();
+// 	const AAnimal* dog = new Dog();
+// 	const AAnimal* cat = new Cat();
 
 // 	std::cout << std::endl;
 
 // 	delete dog;
 // 	delete cat;
-// 	system("leaks Animals");
+// 	system("leaks AAnimals");
 // 	std::cout << std::endl;
 // 	std::cout << std::endl;
 
@@ -22,7 +22,7 @@
 // 	std::cout << std::endl << "creating copies" << std::endl;
 
 //
-// 	const Animal	*(animal_array[4]);
+// 	const AAnimal	*(animal_array[4]);
 
 // 	std::cout << std::endl;
 //
@@ -39,19 +39,19 @@
 // 		delete animal_array[i];
 // 	std::cout << std::endl;
 
-// 	system("leaks Animals");
+// 	system("leaks AAnimals");
 // }
 
 int main()
 {
-	Animal *animal1 = new Dog();
-	Animal *animal2 = new Cat();
+	AAnimal *aanimal1 = new Dog();
+	AAnimal *aanimal2 = new Cat();
 
-	animal1->makeSound(); // "Woof!" yazdırır
-	animal2->makeSound(); // "Meow!" yazdırır
+	aanimal1->makeSound(); 
+	aanimal2->makeSound(); 
 
-	delete animal1;
-	delete animal2;
-	// Animal a;
+	delete aanimal1;
+	delete aanimal2;
+	// AAnimal a;
 	return 0;
 }

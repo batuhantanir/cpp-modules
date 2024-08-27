@@ -2,16 +2,16 @@
 
 #include <iostream>
 
-class Animal
+class AAnimal
 {
 protected:
     std::string type;
 
 public:
-    Animal(/* args */);
-    Animal(const Animal &copy);
-    Animal &operator=(const Animal &src);
+    AAnimal(/* args */);
+    AAnimal(const AAnimal &copy);
+    AAnimal &operator=(const AAnimal &src);
     std::string getType() const;
     virtual void makeSound() const = 0;
-    virtual ~Animal();
+    virtual ~AAnimal();
 };
