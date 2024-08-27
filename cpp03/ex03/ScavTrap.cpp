@@ -20,7 +20,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 {
-    std::cout << "FragTrap Assignation operator called" << std::endl;
+    std::cout << "ScavTrap Assignation operator called" << std::endl;
     if (this != &src)
     {
         attack_damage = src.attack_damage;
