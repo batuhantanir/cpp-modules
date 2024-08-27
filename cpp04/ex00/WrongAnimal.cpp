@@ -2,7 +2,7 @@
 
 WrongAnimal::WrongAnimal(/* args */)
 {
-    type = "none";
+    type = "default";
     std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 

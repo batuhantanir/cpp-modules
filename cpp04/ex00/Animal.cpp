@@ -2,7 +2,7 @@
 
 Animal::Animal(/* args */)
 {
-    type = "none";
+    type = "default";
     std::cout << "Animal default constructor called" << std::endl;
 }
 

@@ -1,9 +1,9 @@
 #include "DiamondTrap.hpp"
 #include "ClapTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap("none_clap_trap")
+DiamondTrap::DiamondTrap(void) : ClapTrap("default_clap_trap")
 {
-    this->name = "none";
+    this->name = "default";
     this->hit_points = FragTrap::hit_points;
     this->energy_points = ScavTrap::energy_points;
     this->attack_damage = FragTrap::attack_damage;
