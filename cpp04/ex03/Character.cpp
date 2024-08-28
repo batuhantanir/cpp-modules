@@ -31,7 +31,10 @@ Character &Character::operator=(const Character &src)
         {
             if (this->inventory[i] != nullptr)
                 delete this->inventory[i];
-            this->inventory[i] = src.inventory[i]->clone();
+            if (src.inventory[i])
+                this->inventory[i] = src.inventory[i]->clone();
+            else 
+                this->inventory[i] = nullptr;
         }
     }
     return *this;
