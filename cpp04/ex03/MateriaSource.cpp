@@ -17,7 +17,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &src)
         {
             if (this->brain[i] != nullptr)
                 delete this->brain[i];
-            this->brain[i] = src.brain[i];
+            this->brain[i] = src.brain[i]->clone();
         }
     }
     return *this;

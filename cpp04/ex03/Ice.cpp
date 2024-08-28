@@ -26,11 +26,6 @@ Ice &Ice::operator=(const Ice &src)
 Ice *Ice::clone() const
 {
     Ice *clone = new Ice(*this);
-    if (!clone)
-    {
-        std::cerr << "Memory allocation error" << std::endl;
-        return nullptr;
-    }
     return clone;
 }
 

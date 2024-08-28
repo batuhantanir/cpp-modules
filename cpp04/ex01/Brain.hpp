@@ -11,5 +11,7 @@ public:
     Brain(/* args */);
     Brain(const Brain &copy);
     Brain &operator=(const Brain &src);
+    void setIdea(int index, const std::string &idea);
+    std::string getIdea(int index) const;
     ~Brain();
 };

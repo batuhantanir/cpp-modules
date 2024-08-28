@@ -17,7 +17,10 @@ Dog &Dog::operator=(const Dog &src)
 {
     std::cout << "Dog Assignation operator called" << std::endl;
     if (this != &src)
+    {
         type = src.type;
+        brain = new Brain(*src.brain);
+    }
     return *this;
 }
 
@@ -30,4 +33,12 @@ Dog::~Dog()
 {
     std::cout << "Dog default destructor called" << std::endl;
     delete this->brain;
+}
+
+void Dog::setBrainIdea(int index, const std::string &idea) {
+    brain->setIdea(index, idea);
+}
+
+std::string Dog::getBrainIdea(int index) const {
+    return brain->getIdea(index);
 }

@@ -30,7 +30,7 @@ int main()
     return 0;
 }
 
-// void __attribute__ ((destructor)) a()
-// {
-//     system("leaks amateria");
-// }
+void __attribute__ ((destructor)) a()
+{
+    system("leaks amateria");
+}

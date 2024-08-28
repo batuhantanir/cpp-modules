@@ -12,6 +12,6 @@ public:
     WrongAnimal(const WrongAnimal &copy);
     WrongAnimal &operator=(const WrongAnimal &src);
     std::string getType() const;
-     void makeSound() const;
-     ~WrongAnimal();
+    void makeSound() const;
+    ~WrongAnimal();
 };

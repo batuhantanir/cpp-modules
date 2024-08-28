@@ -55,3 +55,7 @@ int main()
 	// AAnimal a;
 	return 0;
 }
+void __attribute__ ((destructor)) a()
+{
+	system("leaks AAnimal");
+}
