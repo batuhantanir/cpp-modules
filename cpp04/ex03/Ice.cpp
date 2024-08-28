@@ -1,6 +1,7 @@
 #include "Ice.hpp"
 
-Ice::Ice(/* args */)
+
+Ice::Ice(/* args */) : AMateria("ice")
 {
 }
 
@@ -17,7 +18,7 @@ Ice &Ice::operator=(const Ice &src)
 {
     if (this != &src)
     {
-        // Assignment implementation
+        this->type = src.type;
     }
     return *this;
 }
@@ -35,5 +36,5 @@ Ice *Ice::clone() const
 
 void Ice::use(ICharacter &target)
 {
-    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+   std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

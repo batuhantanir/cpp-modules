@@ -6,12 +6,12 @@
 class MateriaSource : public IMateriaSource
 {
     private:
-        /* data */
+        AMateria *brain[4];
     public:
         MateriaSource(/* args */);
         MateriaSource(const MateriaSource &copy);
         MateriaSource &operator=(const MateriaSource &src);
-        void learnMateria(AMateria*);
+        void learnMateria(AMateria* src);
         AMateria* createMateria(std::string const & type);
         ~MateriaSource();
 };

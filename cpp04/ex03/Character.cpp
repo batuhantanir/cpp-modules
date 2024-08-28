@@ -1,11 +1,20 @@
 #include "Character.hpp"
 
-Character::Character(/* args */)
+Character::Character(/* args */) : name("default")
+{
+}
+
+Character::Character(std::string const &name) : name(name) 
 {
 }
 
 Character::~Character()
 {
+    for (size_t i = 0; i <= 3; i++)
+    {
+        if (this->inventory[i] != nullptr)
+            delete this->inventory[i];
+    }
 }
 
 Character::Character(const Character &copy)
@@ -15,22 +24,48 @@ Character::Character(const Character &copy)
 
 Character &Character::operator=(const Character &src)
 {
-
+    if (this != &src)
+    {
+        this->name = src.getName();
+        for (size_t i = 0; i <= 3; i++)
+        {
+            if (this->inventory[i] != nullptr)
+                delete this->inventory[i];
+            this->inventory[i] = src.inventory[i];
+        }
+    }
+    return *this;
 }
 
-std::string const &Character::getName()
+std::string const &Character::getName() const
 {
-    return; // name
+    return this->name;
 }
 
 void Character::equip(AMateria *m)
 {
+    for (size_t i = 0; i <= 3; i++)
+    {
+        if (this->inventory[i] == nullptr)
+        {
+            this->inventory[i] = m;
+            break;
+        }
+    }
 }
 
 void Character::unequip(int idx)
 {
+    if ((idx <= 3 && idx >= 0) && (this->inventory[idx] != nullptr))
+    {
+        this->inventory[idx] = nullptr;
+    }
 }
 
 void Character::use(int idx, ICharacter &target)
 {
+    if ((idx <= 3 && idx >= 0) && (this->inventory[idx] != nullptr))
+    {
+        this->inventory[idx]->use(target);
+    }
 }

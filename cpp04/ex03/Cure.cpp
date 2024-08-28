@@ -1,7 +1,7 @@
 #include "Cure.hpp"
 
 
-Cure::Cure(/* args */)
+Cure::Cure(/* args */) : AMateria("cure")
 {
 }
 
@@ -18,7 +18,7 @@ Cure &Cure::operator=(const Cure &src)
 {
     if (this != &src)
     {
-        // Assignment implementation
+        this->type = src.type;
     }
     return *this;
 }
@@ -36,6 +36,5 @@ Cure *Cure::clone() const
 
 void Cure::use(ICharacter &target)
 {
-   std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+   std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }
-

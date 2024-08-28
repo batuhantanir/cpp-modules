@@ -4,7 +4,7 @@
 class Cure : public AMateria
 {
     private:
-        /* data */
+        /* args */
     public:
         Cure(/* args */);
         Cure(const Cure &copy);

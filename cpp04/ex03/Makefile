@@ -1,14 +1,14 @@
-NAME = AAnimals
+NAME = amateria
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-SRCS = main.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME):$(OBJS)
+$(NAME) :$(OBJS)
 		$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean: 

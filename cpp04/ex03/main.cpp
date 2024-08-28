@@ -19,7 +19,7 @@ int main()
     me->equip(tmp);
 
     ICharacter *bob = new Character("bob");
-
+    
     me->use(0, *bob);
     me->use(1, *bob);
 
@@ -29,3 +29,8 @@ int main()
 
     return 0;
 }
+
+// void __attribute__ ((destructor)) a()
+// {
+//     system("leaks amateria");
+// }
