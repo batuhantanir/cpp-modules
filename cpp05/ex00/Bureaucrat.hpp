@@ -3,14 +3,34 @@
 #include <iostream>
 #include <string>
 
-class Bureaucrat : public std::exception
+class Bureaucrat
 {
     private:
-        const std::string _name;
-        size_t _grade;
-    
+        const std::string   _name;
+        int                 _grade;
+
     public:
-        const char* what() const throw();
-        const std::string &getName() const;
-        size_t getGrade() const;
+        Bureaucrat();
+        Bureaucrat(const std::string name, int grade);
+        Bureaucrat(const Bureaucrat &src);
+        Bureaucrat &operator=(const Bureaucrat &src);
+        ~Bureaucrat();
+
+        const std::string   getName() const;
+        int                 getGrade() const;
+        void                incrementGrade();
+        void                decrementGrade();
+
+        class GradeTooLowException: public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
+        class GradeTooHighException: public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };   
 };
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &src);
