@@ -21,19 +21,26 @@ std::string ShrubberyCreationForm::getTarget() const
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
-    isExecutable(executor);
-    std::ofstream file;
-    file.open((_target + "_shrubbery").c_str(), std::ios::out);
-    if (!file.is_open())
-        throw std::runtime_error("Error: could not open file");
-    file << "       _-_\n"
-            "    /~~   ~~\\\n"
-            " /~~         ~~\\\n"
-            "{               }\n"
-            " \\  _-     -_  /\n"
-            "   ~  \\\\ //  ~\n"
-            "_- -   | | _- _\n"
-            "  _ -  | |   -_\n"
-            "      // \\\n";
-    file.close();
+    try
+    {
+        isExecutable(executor);
+        std::ofstream file;
+        file.open((_target + "_shrubbery").c_str(), std::ios::out);
+        if (!file.is_open())
+            throw std::runtime_error("Error: could not open file");
+        file << "       _-_\n"
+                "    /~~   ~~\\\n"
+                " /~~         ~~\\\n"
+                "{               }\n"
+                " \\  _-     -_  /\n"
+                "   ~  \\\\ //  ~\n"
+                "_- -   | | _- _\n"
+                "  _ -  | |   -_\n"
+                "      // \\\n";
+        file.close();
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }

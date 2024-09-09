@@ -16,7 +16,7 @@ class Form {
         Form(Form const& src);
         Form(const std::string& name, int gradeToSign, int gradeToExecute);
         Form &operator=(Form const& src);
-        ~Form();
+        virtual ~Form();
 
         const std::string   &getName() const;
         bool                getIsSigned() const;
