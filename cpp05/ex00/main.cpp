@@ -2,22 +2,48 @@
 
 int main()
 {
-    Bureaucrat *a = new Bureaucrat("a", 1);
-    Bureaucrat *b = new Bureaucrat("b", 150);
+    Bureaucrat *a;
+    Bureaucrat *b;
 
-    try {
+    try
+    {
+        a = new Bureaucrat("A", 1);
+        b = new Bureaucrat("B", 150);
         std::cout << *a << std::endl;
         std::cout << *b << std::endl;
-
         a->incrementGrade();
         b->decrementGrade();
-
         std::cout << *a << std::endl;
         std::cout << *b << std::endl;
-    } catch (std::exception &err) {
-        std::cout << err.what() << std::endl;
+        a->incrementGrade();
+        b->decrementGrade();
+        std::cout << *a << std::endl;
+        std::cout << *b << std::endl;
+        a->incrementGrade();
+        b->decrementGrade();
+        std::cout << *a << std::endl;
+        std::cout << *b << std::endl;
+        a->incrementGrade();
+        b->decrementGrade();
+        std::cout << *a << std::endl;
+        std::cout << *b << std::endl;
+        a->incrementGrade();
+        b->decrementGrade();
+        std::cout << *a << std::endl;
+        std::cout << *b << std::endl;
+        a->incrementGrade();
+        b->decrementGrade();
+        std::cout << *a << std::endl;
+        std::cout << *b << std::endl;
+        a->incrementGrade();
+        b->decrementGrade();
+        std::cout << *a << std::endl;
+        std::cout << *b << std::endl;
     }
-
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
     delete a;
     delete b;
 

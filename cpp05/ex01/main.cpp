@@ -2,12 +2,15 @@
 
 int main()
 {
-    Bureaucrat bureaucrat("a", 11);
-    Form form("b", 10, 20);
-
-    bureaucrat.signForm(form);
-
-    std::cout << form << std::endl;
+    try {
+        Bureaucrat a("A", 1);
+        Form f("F", 1, 1);
+        a.signForm(f);
+        std::cout << f << std::endl;
+    }
+    catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
 
     return 0;
 }
