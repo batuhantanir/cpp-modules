@@ -2,10 +2,10 @@
 #include "Array.hpp"
 
 #define MAX_VAL 750
-int main(int, char**)
+int main(int, char **)
 {
     Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
+    int *mirror = new int[MAX_VAL];
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -13,8 +13,10 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
-    //SCOPE
+
+    // SCOPE
     {
+        std::cout << "SCOPE" << std::endl;
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
@@ -31,7 +33,7 @@ int main(int, char**)
     {
         numbers[-2] = 0;
     }
-    catch(const std::exception& e)
+    catch (const std::exception &e)
     {
         std::cerr << e.what() << '\n';
     }
@@ -40,7 +42,7 @@ int main(int, char**)
     {
         numbers[MAX_VAL] = 0;
     }
-    catch(const std::exception& e)
+    catch (const std::exception &e)
     {
         std::cerr << e.what() << '\n';
     }
@@ -49,10 +51,6 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;
+    delete[] mirror;
     return 0;
-}
-void __attribute__((destructor)) end(void)
-{
-    system("leaks array");
 }
