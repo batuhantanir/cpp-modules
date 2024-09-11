@@ -26,7 +26,7 @@ int main(void)
     for (size_t i = 0; i < arrLen; i++)
         std::cout << "arr[" << i << "] : " << arr[i] << std::endl;
 
-    ::iter(arr, arrLen, toUpperCase);
+    ::iter<std::string>(arr, arrLen, toUpperCase);
 
     std::cout << "Array after toUpperCase : " << std::endl;
     for (size_t i = 0; i < arrLen; i++)
