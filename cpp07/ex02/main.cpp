@@ -1,42 +1,58 @@
-#include "iter.hpp"
-#include <ios>
-#include <string>
-#include <cctype>
+#include <iostream>
+#include "Array.hpp"
 
-void toUpperCase(std::string &str)
+#define MAX_VAL 750
+int main(int, char**)
 {
-    for (std::string::size_type i = 0; i < str.size(); ++i){
-        str[i] = std::toupper(static_cast<unsigned char>(str[i]));
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
     }
-}
-
-void lowerPrint(std::string &str)
-{
-    for (std::string::size_type i = 0; i < str.size(); ++i){
-        str[i] = std::tolower(static_cast<unsigned char>(str[i]));
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
     }
-}
 
-int main(void)
-{
-    std::string arr[3] = {"ArRaY", "iS", "BeaUtiFuL"};
-    size_t arrLen = sizeof(arr) / sizeof(std::string);
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    std::cout << "a " << std::endl;
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-    std::cout << "Original array : " << std::endl;
-    for (size_t i = 0; i < arrLen; i++)
-        std::cout << "arr[" << i << "] : " << arr[i] << std::endl;
-
-    ::iter<std::string>(arr, arrLen, toUpperCase);
-
-    std::cout << "Array after toUpperCase : " << std::endl;
-    for (size_t i = 0; i < arrLen; i++)
-        std::cout << "arr[" << i << "] : " << arr[i] << std::endl;
-
-    ::iter(arr, arrLen, lowerPrint);
-
-    std::cout << "Array after lowerPrint : " << std::endl;
-    for (size_t i = 0; i < arrLen; i++)
-        std::cout << "arr[" << i << "] : " << arr[i] << std::endl;
-
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;
     return 0;
+}
+void __attribute__((destructor)) end(void)
+{
+    system("leaks array");
 }

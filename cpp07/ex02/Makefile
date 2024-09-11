@@ -1,8 +1,8 @@
-NAME = iter
+NAME = array
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-SRCS = main.cpp 
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
