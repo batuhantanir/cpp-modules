@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <stdint.h>
 
 typedef struct s_data {
     std::string s1;

@@ -1,29 +1,36 @@
 #pragma once
+
 #include <iostream>
-#include <cctype>
-#include <climits>
-#include <cstdlib>
+#include <string>
+#include <limits>
 #include <iomanip>
 
 class ScalarConverter
 {
     private:
+        static std::string _str; 
+        static std::string _type;
+
         ScalarConverter();
-        ScalarConverter(ScalarConverter &copy);
-        ScalarConverter &operator=(ScalarConverter &src);
-        static bool isChar(std::string str);
-        static bool isFloat(std::string str);
-        static bool isDouble(std::string str);
-        static bool isInt(std::string str);
-        static bool pseudoStr(std::string str);
-        static void strToChar(std::string str);
-        static void strToInt(std::string str);
-        static void strToFloat(std::string str);
-        static void strToDouble(std::string str);
-        static bool isFloatingPoint(std::string str);
-        static int countDecimalPlaces(double num);
-        
+        ScalarConverter(const ScalarConverter &other);
+        ScalarConverter &operator=(const ScalarConverter &other);
+
+        static int  isChar();
+        static int  isInt();
+        static int  isFloat();
+        static int  isDouble();
+        static int  handlePseudo();
+        static void castChar();
+        static void castInt();
+        static void castFloat();
+        static void castDouble();
+        static void printChar(char c);
+        static void printInt(long num);
+        static void printFloat(float num);
+        static void printDouble(double num);
+
     public:
         ~ScalarConverter();
+
         static void convert(std::string str);
 };

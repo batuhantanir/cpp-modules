@@ -1,21 +1,61 @@
-#include "Serializer.hpp"
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+
+Base * generate(void) {
+    int i = rand() % 3;
+
+    switch (i)
+    {
+        case 0:
+            return new A;
+        case 1:
+            return new B;
+        default:
+            return new C;
+    }
+}
+
+void identify(Base* p) {
+    if (dynamic_cast<A*>(p))
+        std::cout << "A" << std::endl;
+    else if (dynamic_cast<B*>(p))
+        std::cout << "B" << std::endl;
+    else if (dynamic_cast<C*>(p))
+        std::cout << "C" << std::endl;
+}
+
+void identify(Base& p) {
+    try {
+        A &a = dynamic_cast<A&>(p);
+        (void)a;
+        std::cout << "A" << std::endl;
+    } catch (std::exception &e) {
+        try {
+            B &b = dynamic_cast<B&>(p);
+            (void)b;
+            std::cout << "B" << std::endl;
+        } catch (std::exception &e) {
+            try {
+                C &c = dynamic_cast<C&>(p);
+                (void)c;
+                std::cout << "C" << std::endl;
+            } catch (std::exception &e) {
+                std::cout << "Unknown" << std::endl;
+            }
+        }
+    }
+}
 
 int main() {
-    Data *data = new Data;
-    uintptr_t raw;
+    
+    srand(time(NULL));
+    Base *base= generate();
 
-    data->s1 = "Hello";
-    data->n = 42;
-    data->s2 = "World";
-    
-    raw = Serializer::serialize(data);
-    Data *data2 = Serializer::deserialize(raw);
-    
-    std::cout << "data2->s1: " << data2->s1 << std::endl;
-    std::cout << "data2->n: " << data2->n << std::endl;
-    std::cout << "data2->s2: " << data2->s2 << std::endl;
+    identify(base);
+    identify(*base);
 
-    delete data;
-    
+    delete base;
     return 0;
 }
