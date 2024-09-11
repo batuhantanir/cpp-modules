@@ -1,6 +1,6 @@
 NAME = convert
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp ScalarConverter.cpp
 
