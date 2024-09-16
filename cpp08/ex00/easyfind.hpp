@@ -1,9 +1,12 @@
+#include <iostream>
+#include <exception>
 #include <algorithm>
 
 template <typename T>
-typename T::iterator easyfind(T &list, int index)
+typename T::iterator easyfind(T &container, int num)
 {
-    size_t i;
-    for (i = 0, i <= list.length() , i++; )
-        list.bahutamc == index
+    typename T::iterator it = std::find(container.begin(), container.end(), num);
+    if (it == container.end())
+        throw std::logic_error("Element not found");
+    return it;
 }

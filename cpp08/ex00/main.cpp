@@ -1,51 +1,50 @@
-#include "Bureaucrat.hpp"
+#include "easyfind.hpp"
+#include <list>
+#include <vector>
 
 int main()
 {
-    Bureaucrat *a;
-    Bureaucrat *b;
+    std::list<int> list;
+
+    list.push_front(3);
+    list.push_front(2);
+    list.push_front(1);
+    list.push_back(4);
+    list.push_back(5);
 
     try
     {
-        a = new Bureaucrat("A", 1);
-        b = new Bureaucrat("B", 150);
-        std::cout << *a << std::endl;
-        std::cout << *b << std::endl;
-        a->incrementGrade();
-        b->decrementGrade();
-        std::cout << *a << std::endl;
-        std::cout << *b << std::endl;
-        a->incrementGrade();
-        b->decrementGrade();
-        std::cout << *a << std::endl;
-        std::cout << *b << std::endl;
-        a->incrementGrade();
-        b->decrementGrade();
-        std::cout << *a << std::endl;
-        std::cout << *b << std::endl;
-        a->incrementGrade();
-        b->decrementGrade();
-        std::cout << *a << std::endl;
-        std::cout << *b << std::endl;
-        a->incrementGrade();
-        b->decrementGrade();
-        std::cout << *a << std::endl;
-        std::cout << *b << std::endl;
-        a->incrementGrade();
-        b->decrementGrade();
-        std::cout << *a << std::endl;
-        std::cout << *b << std::endl;
-        a->incrementGrade();
-        b->decrementGrade();
-        std::cout << *a << std::endl;
-        std::cout << *b << std::endl;
+        std::list<int>::iterator it;
+        it = easyfind(list, 2);
+        std::cout << "Element: " << *it << std::endl;
+        it = easyfind(list, 20);
+        std::cout << "Element: " << *it << std::endl;
     }
     catch (std::exception &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
-    delete a;
-    delete b;
 
+    std::vector<int> vector;
+
+    vector.push_back(1);
+    vector.push_back(2);
+    vector.push_back(3);
+    vector.push_back(4);
+    vector.push_back(5);
+
+    try
+    {
+        std::vector<int>::iterator it;
+        it = easyfind(vector, 2);
+        std::cout << "Element: " << *it << std::endl;
+        it = easyfind(vector, 20);
+        std::cout << "Element: " << *it << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    
     return 0;
 }
