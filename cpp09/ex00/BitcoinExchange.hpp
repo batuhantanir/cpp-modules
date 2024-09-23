@@ -22,4 +22,5 @@ class BitcoinExchange
         void setData(std::ifstream &file);
         void exchange(std::ifstream &file);
         std::string trimLine(std::string line) const;
+        bool checkDate(std::string &date);
 };

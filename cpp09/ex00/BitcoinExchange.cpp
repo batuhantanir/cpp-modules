@@ -66,12 +66,14 @@ void BitcoinExchange::exchange(std::ifstream &file)  {
     while (std::getline(file, line)) {
         std::stringstream ss(line);
         if(std::getline(ss, date, '|')) {
+            date = trimLine(date);
+            if(checkDate(date))
+                continue;
             if(!(ss >> ex_rate))
             {
                 std::cerr << "Error: bad input => " << date << std::endl;
                 continue;
             }
-            date = trimLine(date);
             if (ex_rate < 0)
                 std::cerr << "Error: not a positive number." << std::endl;
             else if(ex_rate > 1000)
@@ -79,10 +81,12 @@ void BitcoinExchange::exchange(std::ifstream &file)  {
             else
             {    
                 std::map<std::string, double>::const_iterator it = _data.find(date);
+                std::cout << date << " => " << ex_rate;
                 if(it != _data.end())
-                    std::cout << date << " => " << ex_rate << " = " << ex_rate * it->second << std::endl;
+                    ex_rate *= it->second;
                 else
-                    std::cout << date << " => " << ex_rate << " = " << ex_rate * (--_data.upper_bound(date))->second << std::endl;
+                    ex_rate *= (--_data.upper_bound(date))->second;
+                std::cout << " = " << ex_rate << std::endl;
             }
         }
     }
@@ -94,4 +98,31 @@ std::string BitcoinExchange::trimLine(std::string line) const {
     size_t end = line.find_last_not_of(" \t");
 
     return line.substr(start, end - start + 1);
+}
+
+bool BitcoinExchange::checkDate(std::string &date) {
+    if(date.size() != 10)
+    {
+        std::cerr << "Error: bad input => " << date << std::endl;
+        return true;
+    }
+    double year, month, day;
+    char c;
+    std::istringstream ss(date);
+    if(!(ss >> year) || !(ss >> c) || !(ss >> month) || !(ss >> c) || !(ss >> day))
+    {
+        std::cerr << "Error: bad input => " << date << std::endl;
+        return true;
+    }
+    if (month < 1 || month > 12 || day < 1 || day > 31)
+    {
+        std::cerr << "Error: bad input => " << date << std::endl;
+        return true;
+    }
+    if(date > _data.rbegin()->first || date < _data.begin()->first)
+    {
+        std::cerr << "Error: bad input => " << date << std::endl;
+        return true;
+    }
+    return false;
 }

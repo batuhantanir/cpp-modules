@@ -4,15 +4,10 @@ int main(int ac, char **av)
 {
     if(ac != 2)
     { 
-        std::cerr << "Error: Argument error" << std::endl;
+        std::cerr << "Error: could not open file." << std::endl;
         return 1; 
     }
     BitcoinExchange btc;
     btc.launch(av[1]);
     return 0;
 }
-
-// void __attribute__((destructor)) onExit()
-// {
-//     system("leaks btc");
-// }
