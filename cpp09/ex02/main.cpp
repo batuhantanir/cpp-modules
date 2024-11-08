@@ -1,13 +1,12 @@
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
 int main(int ac, char **av)
 {
-    if(ac != 2)
+    if(ac < 3)
     { 
         std::cout << "Error" << std::endl;
         return 0; 
     }
-    RPN rpn;
-    rpn.launch(av[1]);
+    PmergeMe p(av, ac);
     return 0;
 }
