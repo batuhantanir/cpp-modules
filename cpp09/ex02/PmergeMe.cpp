@@ -106,12 +106,12 @@ PmergeMe::PmergeMe(char **av, int ac) {
     gettimeofday(&start, NULL);
     _FordJohnson(_v);
     gettimeofday(&end, NULL);
-    double vTime = static_cast<double>(end.tv_usec - start.tv_usec) / CLOCKS_PER_SEC * 1000;
-    
+    double vTime = (end.tv_sec - start.tv_sec) * 1000.0 + (end.tv_usec - start.tv_usec) / 1000.0;
+
     gettimeofday(&start, NULL);
     _FordJohnson(_d);
     gettimeofday(&end, NULL);
-    double dTime = static_cast<double>(end.tv_usec - start.tv_usec) / CLOCKS_PER_SEC * 1000;
+    double dTime = (end.tv_sec - start.tv_sec) * 1000.0 + (end.tv_usec - start.tv_usec) / 1000.0;
 
     _printContainer(av, ac, vTime, dTime);
 }

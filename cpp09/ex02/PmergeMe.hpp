@@ -13,13 +13,13 @@ class PmergeMe
 
         void _printContainer(char **av, int ac, double vTime, double dTime);
         bool _digitControl(char **av, int ac) const;
-        PmergeMe(/* args */);
         template <typename T>
         void _FordJohnson(T &c);
         template <typename T>
         void _mergeSort(T &c, T &left, T &right);
 
     public:
+        PmergeMe(/* args */);
         PmergeMe(char **av, int ac);
         PmergeMe(const PmergeMe &other);
         PmergeMe &operator=(const PmergeMe &other);
