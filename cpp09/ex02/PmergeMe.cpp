@@ -1,13 +1,6 @@
 #include "PmergeMe.hpp"
 
 void PmergeMe::_printContainer(char **av, int ac, double vTime, double dTime) {
-    std::cout << "Time to process a range of "
-              << _v.size() << " elements with std::vector : "
-              << vTime << " us" << std::endl;
-    std::cout << "Time to process a range of "
-              << _d.size() << " elements with std::deque : "
-              << dTime << " us" << std::endl;
-
     std::cout << "Before: ";
     for (int i = 1; i < ac; i++)
         std::cout << av[i] << " ";
@@ -17,6 +10,14 @@ void PmergeMe::_printContainer(char **av, int ac, double vTime, double dTime) {
     for (std::vector<int>::iterator it = _v.begin(); it != _v.end(); it++)
         std::cout << *it << " ";
     std::cout << std::endl;
+
+    std::cout << "Time to process a range of "
+              << _v.size() << " elements with std::vector : "
+              << vTime << " us" << std::endl;
+    std::cout << "Time to process a range of "
+              << _d.size() << " elements with std::deque : "
+              << dTime << " us" << std::endl;
+
 }
 
 template <typename T>
